@@ -10,6 +10,7 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             background-color: lightgray;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -102,13 +103,17 @@
 
                         // Apply styles based on departure time status
                         if (service.etd === 'On time') {
-                            departureTimeCell.textContent = service.etd;
+                            // departureTimeCell.textContent = service.etd;
+                            departureTimeCell.innerHTML = '&#10004;'
                             departureTimeCell.classList.add('ontime');
                         } else if (service.etd === 'Delayed') {
-                            departureTimeCell.textContent = service.etd;
+                            // departureTimeCell.textContent = service.etd;
+                            departureTimeCell.innerHTML = '&#128338;'
+
                             departureTimeCell.classList.add('delayed');
                         } else if (service.etd === 'Cancelled') {
-                            departureTimeCell.textContent = service.etd;
+                            // departureTimeCell.textContent = service.etd;
+                            departureTimeCell.innerHTML = '&#10060;'
                             departureTimeCell.classList.add('cancelled');
                         } else {
                             departureTimeCell.textContent = service.etd;
