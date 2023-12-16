@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Departure Board</title>
     <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: lightgray;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            background-color: #f2f2f2;
         }
 
         th,
@@ -17,14 +22,28 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
+            white-space: nowrap;
         }
 
         th {
             background-color: #f2f2f2;
         }
 
-        form {
-            margin-top: 20px;
+        /* Styles for different departure time statuses */
+        .ontime {
+            color: black;
+        }
+
+        .time {
+            color: #ff6633;
+        }
+
+        .delayed {
+            color: orangered;
+        }
+
+        .cancelled {
+            color: red;
         }
     </style>
 </head>
@@ -41,20 +60,18 @@
         <label for="to">To:</label>
         <input type="text" id="to" name="to" required>
 
-        <button type="button" onclick="fetchDataAndPopulateTable()">Get Departures</button>
+        <button type="button" onclick="fetchDataAndPopulateTable()">Go!</button>
     </form>
 
     <table>
         <thead>
             <tr>
                 <th>Destination</th>
-                <th>Departure Time</th>
-                <th>Length</th>
+                <th>Sched</th>
+                <th>Est</th>
+                <th>Plat</th>
                 <th>Operator</th>
-                <th>Origin</th>
-                <th>Platform</th>
-                <th>Service ID</th>
-                <th>Scheduled Departure</th>
+                <th>Lgth</th>
             </tr>
         </thead>
         <tbody id="departureTableBody">
@@ -80,13 +97,27 @@
                     data.GetDepartureBoardResponse.GetStationBoardResult.trainServices.service.forEach(function (service) {
                         var row = tableBody.insertRow();
                         row.insertCell(0).textContent = service.destination.location.locationName;
-                        row.insertCell(1).textContent = service.etd;
-                        row.insertCell(2).textContent = service.length || 'N/A';
-                        row.insertCell(3).textContent = service.operator;
-                        row.insertCell(4).textContent = service.origin.location.locationName;
-                        row.insertCell(5).textContent = service.platform || 'N/A';
-                        row.insertCell(6).textContent = service.serviceID;
-                        row.insertCell(7).textContent = service.std || 'N/A';
+                        row.insertCell(1).textContent = service.std || 'N/A';
+                        var departureTimeCell = row.insertCell(2);
+
+                        // Apply styles based on departure time status
+                        if (service.etd === 'On time') {
+                            departureTimeCell.textContent = service.etd;
+                            departureTimeCell.classList.add('ontime');
+                        } else if (service.etd === 'Delayed') {
+                            departureTimeCell.textContent = service.etd;
+                            departureTimeCell.classList.add('delayed');
+                        } else if (service.etd === 'Cancelled') {
+                            departureTimeCell.textContent = service.etd;
+                            departureTimeCell.classList.add('cancelled');
+                        } else {
+                            departureTimeCell.textContent = service.etd;
+                            departureTimeCell.classList.add('time');
+                        }
+
+                        row.insertCell(3).textContent = service.platform || '';
+                        row.insertCell(4).textContent = service.operator;
+                        row.insertCell(5).textContent = service.length || '';
                     });
                 })
                 .catch(error => console.error('Error fetching data:', error));
