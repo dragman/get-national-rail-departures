@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departure Board</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Departure Board</h2>
+
+    <!-- Form to input "from" and "to" values -->
+    <form id="apiForm">
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from" required>
+
+        <label for="to">To:</label>
+        <input type="text" id="to" name="to" required>
+
+        <button type="button" onclick="fetchDataAndPopulateTable()">Get Departures</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Departure Time</th>
+                <th>Length</th>
+                <th>Operator</th>
+                <th>Origin</th>
+                <th>Platform</th>
+                <th>Service ID</th>
+                <th>Scheduled Departure</th>
+            </tr>
+        </thead>
+        <tbody id="departureTableBody">
+            <!-- JavaScript code will populate this tbody element -->
+        </tbody>
+    </table>
+
+    <script>
+        // Function to fetch JSON data and populate the table
+        function fetchDataAndPopulateTable() {
+            var fromInput = document.getElementById('from');
+            var toInput = document.getElementById('to');
+
+            var apiUrl = 'https://t3w2ckpzkfzeyddcvww2n6mnyy0arbjr.lambda-url.eu-north-1.on.aws/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var tableBody = document.getElementById('departureTableBody');
+                    // Clear previous table data
+                    tableBody.innerHTML = '';
+
+                    data.GetDepartureBoardResponse.GetStationBoardResult.trainServices.service.forEach(function (service) {
+                        var row = tableBody.insertRow();
+                        row.insertCell(0).textContent = service.destination.location.locationName;
+                        row.insertCell(1).textContent = service.etd;
+                        row.insertCell(2).textContent = service.length || 'N/A';
+                        row.insertCell(3).textContent = service.operator;
+                        row.insertCell(4).textContent = service.origin.location.locationName;
+                        row.insertCell(5).textContent = service.platform || 'N/A';
+                        row.insertCell(6).textContent = service.serviceID;
+                        row.insertCell(7).textContent = service.std || 'N/A';
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Function to check for GET parameters and auto-submit the form
+        function checkAndGetParams() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var fromParam = urlParams.get('from');
+            var toParam = urlParams.get('to');
+
+            if (fromParam !== null && toParam !== null) {
+                var fromInput = document.getElementById('from');
+                var toInput = document.getElementById('to');
+
+                fromInput.value = fromParam;
+                toInput.value = toParam;
+
+                // Auto-submit the form
+                fetchDataAndPopulateTable();
+            }
+        }
+
+        // Call the function to check for GET parameters on page load
+        checkAndGetParams();
+    </script>
+
+</body>
+
+</html>
