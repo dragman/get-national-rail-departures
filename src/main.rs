@@ -102,3 +102,23 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
+
+#[cfg(test)]
+mod test {
+    use serde_xml_rs::from_str;
+
+    use crate::models::SoapResponse;
+
+    use test_case::test_case;
+
+    #[test_case("foh.xml")]
+    #[test_case("example.xml")]
+    #[test_case("soap_error.xml")]
+    fn test_parse_data(file: &str) {
+        let file_path = format! {"tests/data/{}", file};
+        let test_data = std::fs::read_to_string(file_path).expect("Failed to read file!");
+
+        let response: SoapResponse = from_str(&test_data).expect("Parsing failed!");
+        println!("{:#?}", response)
+    }
+}

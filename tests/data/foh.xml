@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <GetDepartureBoardResponse xmlns="http://thalesgroup.com/RTTI/2021-11-01/ldb/">
+            <GetStationBoardResult xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types"
+                xmlns:lt8="http://thalesgroup.com/RTTI/2021-11-01/ldb/types"
+                xmlns:lt6="http://thalesgroup.com/RTTI/2017-02-02/ldb/types"
+                xmlns:lt7="http://thalesgroup.com/RTTI/2017-10-01/ldb/types"
+                xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types"
+                xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types"
+                xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types"
+                xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types">
+                <lt4:generatedAt>2023-12-15T18:28:42.6631164+00:00</lt4:generatedAt>
+                <lt4:locationName>Forest Hill</lt4:locationName>
+                <lt4:crs>FOH</lt4:crs>
+                <lt4:platformAvailable>true</lt4:platformAvailable>
+                <lt8:trainServices>
+                    <lt8:service>
+                        <lt4:std>18:28</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>1</lt4:platform>
+                        <lt4:operator>Southern</lt4:operator>
+                        <lt4:operatorCode>SN</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:length>8</lt4:length>
+                        <lt4:serviceID>2604781FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>London Victoria</lt4:locationName>
+                                <lt4:crs>VIC</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>London Bridge</lt4:locationName>
+                                <lt4:crs>LBG</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:31</lt4:std>
+                        <lt4:etd>18:34</lt4:etd>
+                        <lt4:platform>2</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2599183FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Crystal Palace</lt4:locationName>
+                                <lt4:crs>CYP</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:32</lt4:std>
+                        <lt4:etd>18:34</lt4:etd>
+                        <lt4:platform>1</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2600246FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>West Croydon</lt4:locationName>
+                                <lt4:crs>WCY</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:37</lt4:std>
+                        <lt4:etd>18:40</lt4:etd>
+                        <lt4:platform>2</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2599927FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>West Croydon</lt4:locationName>
+                                <lt4:crs>WCY</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:39</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>1</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2599537FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Crystal Palace</lt4:locationName>
+                                <lt4:crs>CYP</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:42</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>2</lt4:platform>
+                        <lt4:operator>Southern</lt4:operator>
+                        <lt4:operatorCode>SN</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:length>8</lt4:length>
+                        <lt4:serviceID>2614636FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>London Bridge</lt4:locationName>
+                                <lt4:crs>LBG</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>London Victoria</lt4:locationName>
+                                <lt4:crs>VIC</lt4:crs>
+                                <lt4:via>via Crystal Palace</lt4:via>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:46</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>2</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2599186FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Crystal Palace</lt4:locationName>
+                                <lt4:crs>CYP</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:47</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>1</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2600250FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>West Croydon</lt4:locationName>
+                                <lt4:crs>WCY</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:52</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>2</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2599931FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>West Croydon</lt4:locationName>
+                                <lt4:crs>WCY</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                    <lt8:service>
+                        <lt4:std>18:54</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>1</lt4:platform>
+                        <lt4:operator>London Overground</lt4:operator>
+                        <lt4:operatorCode>LO</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>2599542FORESTH_</lt4:serviceID>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Crystal Palace</lt4:locationName>
+                                <lt4:crs>CYP</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Highbury &amp; Islington</lt4:locationName>
+                                <lt4:crs>HHY</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt8:service>
+                </lt8:trainServices>
+            </GetStationBoardResult>
+        </GetDepartureBoardResponse>
+    </soap:Body>
+</soap:Envelope> 

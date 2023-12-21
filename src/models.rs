@@ -28,8 +28,8 @@ struct Service {
     length: Option<i32>,
     #[serde(rename = "serviceID")]
     service_id: String,
-    origin: Origin,
-    destination: Destination,
+    origin: Vec<Origin>,
+    destination: Vec<Destination>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -48,12 +48,6 @@ pub struct StationBoard {
     #[serde(rename = "trainServices")]
     train_services: TrainServices,
 }
-
-// #[derive(Debug, Deserialize, Serialize)]
-// struct StationBoardResult {
-//     #[serde(rename = "GetStationBoardResult")]
-//     station_board: StationBoard,
-// }
 
 #[derive(Debug, Deserialize, Serialize)]
 struct Fault {

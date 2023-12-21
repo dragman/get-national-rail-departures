@@ -106,7 +106,7 @@
 
                     data.GetDepartureBoardResponse.GetStationBoardResult.trainServices.service.forEach(function (service) {
                         var row = tableBody.insertRow();
-                        row.insertCell(0).textContent = service.destination.location.locationName;
+                        row.insertCell(0).textContent = service.destination?.[0].location.locationName ?? "??";
                         row.insertCell(1).textContent = service.std || 'N/A';
                         var departureTimeCell = row.insertCell(2);
 
