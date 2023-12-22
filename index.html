@@ -46,6 +46,11 @@
         .cancelled {
             color: red;
         }
+
+        #errorMessage {
+            color: #999999;
+            padding: 3px;
+        }
     </style>
 </head>
 
@@ -64,23 +69,23 @@
         <button type="button" onclick="fetchDataAndPopulateTable()">Go!</button>
     </form>
 
-    <div id="errorMessage" class="error-message"></div>
-
     <table>
         <thead>
             <tr>
-                <th>Destination</th>
-                <th>Sched</th>
+                <th>Dst</th>
+                <th>Sch</th>
                 <th>Est</th>
-                <th>Plat</th>
-                <th>Operator</th>
-                <th>Lgth</th>
+                <th>Plt</th>
+                <th>Opr</th>
+                <th>Lng</th>
             </tr>
         </thead>
         <tbody id="departureTableBody">
             <!-- JavaScript code will populate this tbody element -->
         </tbody>
     </table>
+
+    <div id="errorMessage" class="error-message"></div>
 
     <script>
         // Function to fetch JSON data and populate the table
@@ -90,7 +95,8 @@
             var fromInput = document.getElementById('from');
             var toInput = document.getElementById('to');
 
-            var apiUrl = 'https://t3w2ckpzkfzeyddcvww2n6mnyy0arbjr.lambda-url.eu-north-1.on.aws/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
+            // var apiUrl = 'https://t3w2ckpzkfzeyddcvww2n6mnyy0arbjr.lambda-url.eu-north-1.on.aws/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
+            var apiUrl = 'http://localhost:9000/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
 
             fetch(apiUrl)
                 .then(response => {
@@ -103,10 +109,10 @@
                     var tableBody = document.getElementById('departureTableBody');
                     // Clear previous table data
                     tableBody.innerHTML = '';
-
-                    data.GetDepartureBoardResponse.GetStationBoardResult.trainServices.service.forEach(function (service) {
+                    document.getElementById('errorMessage').textContent = data.generatedAt;
+                    data.trainServices.forEach(function (service) {
                         var row = tableBody.insertRow();
-                        row.insertCell(0).textContent = service.destination?.[0].location.locationName ?? "??";
+                        row.insertCell(0).textContent = service.destination?.[0].locationName ?? "??";
                         row.insertCell(1).textContent = service.std || 'N/A';
                         var departureTimeCell = row.insertCell(2);
 
@@ -130,7 +136,7 @@
                         }
 
                         row.insertCell(3).textContent = service.platform || '';
-                        row.insertCell(4).textContent = service.operator;
+                        row.insertCell(4).textContent = service.operatorCode;
                         row.insertCell(5).textContent = service.length || '';
                     });
                 })

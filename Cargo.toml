@@ -28,6 +28,8 @@ serde_json = "*"
 serde-xml-rs = "*"
 dotenv = "0.15.0"
 openssl = { version = "0.10", features = ["vendored"] }
+url = "*"
+once_cell = "*"
 
 [dev-dependencies]
 test-case = "*"

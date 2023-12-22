@@ -1,0 +1,335 @@
+{
+    "Xmlns": {
+        "Count": 8
+    },
+    "areServicesAvailable": true,
+    "crs": "ZCW",
+    "filterLocationName": null,
+    "filterType": "to",
+    "filtercrs": null,
+    "generatedAt": "2023-12-22T17:02:45.5856403+00:00",
+    "locationName": "Canada Water",
+    "platformAvailable": true,
+    "trainServices": [
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "NWX",
+                    "locationName": "New Cross",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "17:01",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "DLJ",
+                    "locationName": "Dalston Junction"
+                }
+            ],
+            "platform": "3",
+            "serviceID": "2815025CNDAW___",
+            "serviceType": "train",
+            "std": "16:58"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "HHY",
+                    "locationName": "Highbury & Islington",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "17:03",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "WCY",
+                    "locationName": "West Croydon"
+                }
+            ],
+            "platform": "4",
+            "serviceID": "2814700CNDAW___",
+            "serviceType": "train",
+            "std": "16:59"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "CYP",
+                    "locationName": "Crystal Palace",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "HHY",
+                    "locationName": "Highbury & Islington"
+                }
+            ],
+            "platform": "3",
+            "serviceID": "2813643CNDAW___",
+            "serviceType": "train",
+            "std": "17:02"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "DLJ",
+                    "locationName": "Dalston Junction",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "NWX",
+                    "locationName": "New Cross"
+                }
+            ],
+            "platform": "4",
+            "serviceID": "2815353CNDAW___",
+            "serviceType": "train",
+            "std": "17:03"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "CLJ",
+                    "locationName": "Clapham Junction",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "DLJ",
+                    "locationName": "Dalston Junction"
+                }
+            ],
+            "platform": "3",
+            "serviceID": "2815733CNDAW___",
+            "serviceType": "train",
+            "std": "17:05"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "HHY",
+                    "locationName": "Highbury & Islington",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "CYP",
+                    "locationName": "Crystal Palace"
+                }
+            ],
+            "platform": "4",
+            "serviceID": "2813996CNDAW___",
+            "serviceType": "train",
+            "std": "17:07"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "WCY",
+                    "locationName": "West Croydon",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "HHY",
+                    "locationName": "Highbury & Islington"
+                }
+            ],
+            "platform": "3",
+            "serviceID": "2814387CNDAW___",
+            "serviceType": "train",
+            "std": "17:08"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "DLJ",
+                    "locationName": "Dalston Junction",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "CLJ",
+                    "locationName": "Clapham Junction"
+                }
+            ],
+            "platform": "4",
+            "serviceID": "2816095CNDAW___",
+            "serviceType": "train",
+            "std": "17:10"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "NWX",
+                    "locationName": "New Cross",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "DLJ",
+                    "locationName": "Dalston Junction"
+                }
+            ],
+            "platform": "3",
+            "serviceID": "2815029CNDAW___",
+            "serviceType": "train",
+            "std": "17:13"
+        },
+        {
+            "destination": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "HHY",
+                    "locationName": "Highbury & Islington",
+                    "via": null
+                }
+            ],
+            "detachFront": false,
+            "etd": "On time",
+            "filterLocationCancelled": false,
+            "futureCancellation": false,
+            "futureDelay": false,
+            "isCancelled": false,
+            "isCircularRoute": false,
+            "isReverseFormation": false,
+            "length": 0,
+            "operator": "London Overground",
+            "operatorCode": "LO",
+            "origin": [
+                {
+                    "assocIsCancelled": false,
+                    "crs": "WCY",
+                    "locationName": "West Croydon"
+                }
+            ],
+            "platform": "4",
+            "serviceID": "2814704CNDAW___",
+            "serviceType": "train",
+            "std": "17:15"
+        }
+    ]
+}

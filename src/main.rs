@@ -1,64 +1,39 @@
 mod models;
-use dotenv::dotenv;
+mod requests;
 use lambda_http::{run, service_fn, Body, Error, Request, RequestExt, Response};
+use requests::{GetDepartureBoardRequest, API_CONFIG};
 use reqwest::Client;
-use serde_json::Value;
-use serde_xml_rs::from_str;
-use std::env;
+use url::Url;
 
-async fn departures_to(from: &str, to: Option<&str>) -> Value {
-    dotenv().ok();
-
+async fn departures_to(from: &str, to: Option<&str>) -> models::Response {
     let client = Client::new();
-    let key = env::var("API_KEY").unwrap();
-    let endpoint_url = env::var("API_URL").unwrap();
 
-    // Build the SOAP request payload
-    let mut soap_request = format!(
-        r#"
-        <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
-        <soap-env:Header>
-          <ns0:AccessToken xmlns:ns0="http://thalesgroup.com/RTTI/2013-11-28/Token/types">
-            <ns0:TokenValue>{}</ns0:TokenValue>
-          </ns0:AccessToken>
-        </soap-env:Header>
-        <soap-env:Body>
-          <ns0:GetDepartureBoardRequest xmlns:ns0="http://thalesgroup.com/RTTI/2021-11-01/ldb/">
-            <ns0:numRows>10</ns0:numRows>
-            <ns0:crs>{}</ns0:crs>
-    "#,
-        key, from
-    );
+    let url: Url = GetDepartureBoardRequest::new(from, to).into();
+    let key = &API_CONFIG.key;
 
-    // Optionally add filterCrs
-    if let Some(to_crs) = to {
-        let filter_crs = format!(r#"<ns0:filterCrs>{}</ns0:filterCrs>"#, to_crs);
-        soap_request.push_str(&filter_crs)
-    }
-
-    let soap_request_end: String = String::from(
-        r#"
-        </ns0:GetDepartureBoardRequest>
-        </soap-env:Body>
-        </soap-env:Envelope>
-    "#,
-    );
-
-    soap_request.push_str(&soap_request_end);
+    println!("GET {}", url.as_str());
 
     let response = client
-        .post(endpoint_url)
-        .header("Content-Type", "text/xml")
-        .body(soap_request)
+        .get(url.to_string())
+        .header("x-apikey", key)
         .send()
-        .await;
+        .await
+        .expect("Unable to send GET request");
 
-    let response_text = response.unwrap().text().await.unwrap();
+    let body_bytes = response.bytes().await.expect("Didn't get bytes");
 
-    let soap_response: models::SoapResponse =
-        from_str(&response_text).expect("Failed to deserialise soap response");
+    // Attempt deserialization
+    let result = serde_json::from_slice::<models::Response>(&body_bytes);
 
-    serde_json::to_value(&soap_response.body).unwrap()
+    // Handle deserialization result
+    match result {
+        Ok(body) => body,
+        Err(err) => {
+            // Deserialization failed, handle the error as needed
+            println!("{}", String::from_utf8_lossy(&body_bytes));
+            panic!("Failed to deserialize: {}", err);
+        }
+    }
 }
 
 async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
@@ -74,7 +49,9 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
 
         let to_crs = query_map.first("to");
 
-        let departures_response = departures_to(from_crs.unwrap(), to_crs).await;
+        let departures_response =
+            serde_json::to_value(departures_to(from_crs.unwrap(), to_crs).await)
+                .expect("Unable to serialise response to JSON!");
 
         let resp = Response::builder()
             .status(200)
@@ -101,24 +78,4 @@ async fn main() -> Result<(), Error> {
         .init();
 
     run(service_fn(function_handler)).await
-}
-
-#[cfg(test)]
-mod test {
-    use serde_xml_rs::from_str;
-
-    use crate::models::SoapResponse;
-
-    use test_case::test_case;
-
-    #[test_case("foh.xml")]
-    #[test_case("example.xml")]
-    #[test_case("soap_error.xml")]
-    fn test_parse_data(file: &str) {
-        let file_path = format! {"tests/data/{}", file};
-        let test_data = std::fs::read_to_string(file_path).expect("Failed to read file!");
-
-        let response: SoapResponse = from_str(&test_data).expect("Parsing failed!");
-        println!("{:#?}", response)
-    }
 }

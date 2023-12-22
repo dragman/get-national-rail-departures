@@ -309,6 +309,7 @@ dependencies = [
  "dotenv",
  "lambda_http",
  "lambda_runtime",
+ "once_cell",
  "openssl",
  "reqwest",
  "serde",
@@ -318,6 +319,7 @@ dependencies = [
  "tokio",
  "tracing",
  "tracing-subscriber",
+ "url",
 ]
 
 [[package]]
