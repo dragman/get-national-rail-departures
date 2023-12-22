@@ -95,8 +95,8 @@
             var fromInput = document.getElementById('from');
             var toInput = document.getElementById('to');
 
-            // var apiUrl = 'https://t3w2ckpzkfzeyddcvww2n6mnyy0arbjr.lambda-url.eu-north-1.on.aws/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
-            var apiUrl = 'http://localhost:9000/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
+            var apiUrl = 'https://t3w2ckpzkfzeyddcvww2n6mnyy0arbjr.lambda-url.eu-north-1.on.aws/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
+            // var apiUrl = 'http://localhost:9000/?from=' + encodeURIComponent(fromInput.value) + '&to=' + encodeURIComponent(toInput.value);
 
             fetch(apiUrl)
                 .then(response => {
